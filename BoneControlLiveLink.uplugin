@@ -1,0 +1,43 @@
+{
+  "CanContainContent": true,
+  "Category": "Animation",
+  "CreatedBy": "fuji",
+  "CreatedByURL": "",
+  "Description": "to LiveLinkBoneControl",
+  "DocsURL": "",
+  "FileVersion": 3,
+  "FriendlyName": "Skeleton Control LiveLink",
+  "Installed": false,
+  "EngineVersion": "4.27.0",
+ 
+  "IsBetaVersion": false,
+  "IsExperimentalVersion": false,
+  "MarketplaceURL": "",
+  "Modules": [
+    {
+      "Name": "BoneControlLiveLink",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "WhitelistPlatforms": [
+        "Win64",
+        "Win32"
+      ]
+    },
+    {
+      "Name": "BoneControlLiveLinkEditor",
+      "Type": "Editor",
+      "LoadingPhase": "PostEngineInit",
+      "WhitelistPlatforms": [
+        "Win64",
+        "Win32"
+      ]
+
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "LiveLink",
+      "Enabled": true
+    }
+  ]
+}
