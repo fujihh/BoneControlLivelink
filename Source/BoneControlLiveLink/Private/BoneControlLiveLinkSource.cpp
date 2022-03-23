@@ -179,22 +179,27 @@ void FBoneControlLiveLinkSource::HandleReceivedData(TSharedPtr<TArray<uint8>, ES
 				FVector BoneLocation;
 				//FQuat BoneRotation;
 				FRotator BoneRotation;
+				FQuat BoneQuat;
 				FRotator LastBoenRotation;
 				const TArray<TSharedPtr<FJsonValue>>* RotationArray;
 				const TArray<TSharedPtr<FJsonValue>>* LocationArray;
 				LastBoenRotation = FRotator(FrameData.Transforms[BoneIndex].GetRotation());
 
-				if (SingalBoneObject->TryGetArrayField(TEXT("Rotation"), RotationArray)) {
-					//double X = (*RotationArray)[0]->AsNumber();
-					//double Y = (*RotationArray)[1]->AsNumber();
-					//double Z = (*RotationArray)[2]->AsNumber();
-					//double W = (*RotationArray)[3]->AsNumber();
-					//BoneRotation = FQuat(X, Y, Z, W);
+				if (SingalBoneObject->TryGetArrayField(TEXT("Rotation"), RotationArray) ) {
+					if (RotationArray->Num() == 3) {
+						double X = (*RotationArray)[0]->AsNumber();
+						double Y = (*RotationArray)[1]->AsNumber();
+						double Z = (*RotationArray)[2]->AsNumber();
+						BoneRotation = FRotator(X, Y, Z);
+					}
+					else if (RotationArray->Num() == 4) {
 
-					double X = (*RotationArray)[0]->AsNumber();
-					double Y = (*RotationArray)[1]->AsNumber();
-					double Z = (*RotationArray)[2]->AsNumber();
-					BoneRotation = FRotator(X, Y, Z);
+						double X = (*RotationArray)[0]->AsNumber();
+						double Y = (*RotationArray)[1]->AsNumber();
+						double Z = (*RotationArray)[2]->AsNumber();
+						double W = (*RotationArray)[3]->AsNumber();
+						BoneQuat = FQuat(X, Y, Z, W);
+					}
 				}
 				if (SingalBoneObject->TryGetArrayField(TEXT("Position"), LocationArray)) {
 					double X = (*LocationArray)[0]->AsNumber();
@@ -204,8 +209,8 @@ void FBoneControlLiveLinkSource::HandleReceivedData(TSharedPtr<TArray<uint8>, ES
 				}
 				FVector BoneScale(1, 1, 1);
 				//FrameData.Transforms[BoneIndex] = FTransform(BoneRotation, BoneLocation, BoneScale);
-				FQuat result = FQuat::Slerp(FQuat(LastFrameBonesRotation[0]), FQuat(BoneRotation), 0.1);
-				FrameData.Transforms[BoneIndex] = FTransform(result, BoneLocation, BoneScale);
+				//FQuat result = FQuat::Slerp(FQuat(LastFrameBonesRotation[0]), FQuat(BoneRotation), 0.1);
+				FrameData.Transforms[BoneIndex] = FTransform((RotationArray->Num()==3?FQuat(BoneRotation):BoneQuat), BoneLocation, BoneScale);
 
 
 				LastFrameBonesRotation[0] = BoneRotation;
