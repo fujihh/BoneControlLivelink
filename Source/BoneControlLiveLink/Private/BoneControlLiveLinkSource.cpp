@@ -121,30 +121,6 @@ uint32 FBoneControlLiveLinkSource::Run() {
 		}
 		Socket->Close();
 
-		//TSharedRef<FInternetAddr> Sender = SocketSubsystem->CreateInternetAddr();
-		//while (!Stopping)
-		//{
-		//	//if (Socket->Wait(ESocketWaitConditions::WaitForRead, WaitTime))
-		//	//{
-		//		uint32 Size;
-
-		//		while (Socket->HasPendingData(Size))
-		//		{
-		//			int32 Read = 0;
-
-		//			if (Socket->Recv(RecvBuffer.GetData(), RecvBuffer.Num(), Read, ESocketReceiveFlags::None))
-		//			{
-		//				if (Read > 0)
-		//				{
-		//					TSharedPtr<TArray<uint8>, ESPMode::ThreadSafe> ReceivedData = MakeShareable(new TArray<uint8>());
-		//					ReceivedData->SetNumUninitialized(Read);
-		//					memcpy(ReceivedData->GetData(), RecvBuffer.GetData(), Read);
-		//					AsyncTask(ENamedThreads::GameThread, [this, ReceivedData]() { HandleReceivedData(ReceivedData); });
-		//				}
-		//			}
-		//		}
-		//	//}
-		//}
 	}
 	return 0;
 }
@@ -161,7 +137,7 @@ void FBoneControlLiveLinkSource::HandleReceivedData(TSharedPtr<TArray<uint8>, ES
 	TSharedRef<TJsonReader<>> JsonReader = TJsonReaderFactory<>::Create(JsonString);
 	if (FJsonSerializer::Deserialize(JsonReader, JsonObject)) {
 		TSharedPtr<FJsonObject> CurrentFrameInfo = JsonObject->GetObjectField("Frame");
-		TSharedPtr<FJsonObject> CurrentFrameBones = JsonObject->GetObjectField("Bone");
+		TSharedPtr<FJsonObject> CurrentFrameBones = JsonObject->GetObjectField("Bones");
 		//UE_LOG(LogTemp, Error, TEXT("Frame Number:%d"), CurrentFrameInfo->GetNumberField("CurrentFrame"));
 		int BoneIndex = 0;
 		bool bCreateSubject = !EncounteredSubjects.Contains(SubjectName);
@@ -208,8 +184,7 @@ void FBoneControlLiveLinkSource::HandleReceivedData(TSharedPtr<TArray<uint8>, ES
 					BoneLocation = FVector(X, Y, Z);
 				}
 				FVector BoneScale(1, 1, 1);
-				//FrameData.Transforms[BoneIndex] = FTransform(BoneRotation, BoneLocation, BoneScale);
-				//FQuat result = FQuat::Slerp(FQuat(LastFrameBonesRotation[0]), FQuat(BoneRotation), 0.1);
+			
 				FrameData.Transforms[BoneIndex] = FTransform((RotationArray->Num()==3?FQuat(BoneRotation):BoneQuat), BoneLocation, BoneScale);
 
 
@@ -290,7 +265,29 @@ void FBoneControlLiveLinkSource::HandleSuitData()
 	boneParents.Add(20); //21 - foot_l
 	boneParents.Add(21); //22 - ball_l
 
-
+	//boneParents.Add(0); //0 - root
+	//boneParents.Add(0); //1 - pelvis
+	//boneParents.Add(0); //2 - spine_01
+	//boneParents.Add(2); //3 - spine_03
+	//boneParents.Add(0); //4 - spine_05
+	//boneParents.Add(2); //5 - neck
+	//boneParents.Add(3); //6 - head
+	//boneParents.Add(1); //7 - clavicle_l
+	//boneParents.Add(4); //8 - upperarm_l
+	//boneParents.Add(5); //9 - lowerarm_l
+	//boneParents.Add(6); //10 - hand_l
+	//boneParents.Add(1); //11 - clavicle_r
+	//boneParents.Add(8); //12 - upperarm_r
+	//boneParents.Add(9); //13 - lowerarm_r
+	//boneParents.Add(10); //14 - hand_r
+	//boneParents.Add(0); //15 - thigh_r
+	//boneParents.Add(12); //16 - calf_r
+	//boneParents.Add(13); //17 - foot_r
+	//boneParents.Add(14); //18 - ball_r
+	//boneParents.Add(0); //19 - thigh_l
+	//boneParents.Add(16); //20 - calf_l
+	//boneParents.Add(17); //21 - foot_l
+	//boneParents.Add(18); //22 - ball_l
 
 	FLiveLinkStaticDataStruct StaticData(FLiveLinkSkeletonStaticData::StaticStruct());
 	FLiveLinkSkeletonStaticData* SkeletonData = StaticData.Cast<FLiveLinkSkeletonStaticData>();
