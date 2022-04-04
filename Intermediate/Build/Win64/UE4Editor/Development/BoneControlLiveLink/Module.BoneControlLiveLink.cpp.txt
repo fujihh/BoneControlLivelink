@@ -51,6 +51,7 @@ E:\UE_4.27\Engine\Source\Runtime\Json\Public\Serialization/JsonWriter.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet/KismetMathLibrary.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\KismetMathLibrary.generated.h
 E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Kismet\KismetMathLibrary.inl
+E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Source\BoneControlLiveLink\Public\FParseJson.h
 E:/UE_Project/LiveLinkPluginsTest/Plugins/BoneControlLiveLink/Source/BoneControlLiveLink/Private/BoneControlLiveLinkSourceFactory.cpp
 E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Source\BoneControlLiveLink\Public\BoneControlLiveLinkSourceFactory.h
 E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Intermediate\Build\Win64\UE4Editor\Inc\BoneControlLiveLink\BoneControlLiveLinkSourceFactory.generated.h

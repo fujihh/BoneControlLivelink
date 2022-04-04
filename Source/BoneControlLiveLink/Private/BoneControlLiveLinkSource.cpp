@@ -17,6 +17,7 @@
 #include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
 #include "Kismet/KismetMathLibrary.h"
+#include "FParseJson.h"
 //#include "Math/UnrealMathUtility.h"
 
 
@@ -139,9 +140,9 @@ void FBoneControlLiveLinkSource::HandleReceivedData(TSharedPtr<TArray<uint8>, ES
 	TSharedPtr<FJsonObject> JsonObject = MakeShareable(new FJsonObject);
 	TSharedRef<TJsonReader<>> JsonReader = TJsonReaderFactory<>::Create(JsonString);
 	if (FJsonSerializer::Deserialize(JsonReader, JsonObject)) {
-		TSharedPtr<FJsonObject> CurrentFrameInfo = JsonObject->GetObjectField("Frame");
-		TSharedPtr<FJsonObject> CurrentFrameBones = JsonObject->GetObjectField("Bones");
-		//UE_LOG(LogTemp, Error, TEXT("Frame Number:%d"), CurrentFrameInfo->GetNumberField("CurrentFrame"));
+		//TSharedPtr<FJsonObject> CurrentFrameInfo = JsonObject->GetObjectField("Frame");
+		//TSharedPtr<FJsonObject> CurrentFrameBones = JsonObject->GetObjectField("Bones");
+		
 		int BoneIndex = 0;
 		bool bCreateSubject = !EncounteredSubjects.Contains(SubjectName);
 		if (bCreateSubject)
@@ -150,52 +151,57 @@ void FBoneControlLiveLinkSource::HandleReceivedData(TSharedPtr<TArray<uint8>, ES
 
 			FLiveLinkFrameDataStruct FrameDataStruct = FLiveLinkFrameDataStruct(FLiveLinkAnimationFrameData::StaticStruct());
 			FLiveLinkAnimationFrameData& FrameData = *FrameDataStruct.Cast<FLiveLinkAnimationFrameData>();
-			FrameData.Transforms.SetNumUninitialized(CurrentFrameBones->Values.Num()); 
-
-			for (TPair<FString, TSharedPtr<FJsonValue>>& Bone : CurrentFrameBones->Values) {
-				TSharedPtr<FJsonObject> SingalBoneObject = Bone.Value->AsObject();
-				FString BoneName = Bone.Key;
-				FVector BoneLocation;
-				//FQuat BoneRotation;
-				FRotator BoneRotation;
-				FQuat BoneQuat;
-				FRotator LastBoenRotation;
-				const TArray<TSharedPtr<FJsonValue>>* RotationArray;
-				const TArray<TSharedPtr<FJsonValue>>* LocationArray;
-				LastBoenRotation = FRotator(FrameData.Transforms[BoneIndex].GetRotation());
-
-				if (SingalBoneObject->TryGetArrayField(TEXT("Rotation"), RotationArray) ) {
-					if (RotationArray->Num() == 3) {
-						double X = (*RotationArray)[0]->AsNumber();
-						double Y = (*RotationArray)[1]->AsNumber();
-						double Z = (*RotationArray)[2]->AsNumber();
-						BoneRotation = FRotator(X, Y, Z);
-					}
-					else if (RotationArray->Num() == 4) {
-
-						double X = (*RotationArray)[0]->AsNumber();
-						double Y = (*RotationArray)[1]->AsNumber();
-						double Z = (*RotationArray)[2]->AsNumber();
-						double W = (*RotationArray)[3]->AsNumber();
-						BoneQuat = FQuat(X, Y, Z, W);
-						isRotation = false;
-					}
-				}
-				if (SingalBoneObject->TryGetArrayField(TEXT("Position"), LocationArray)) {
-					double X = (*LocationArray)[0]->AsNumber();
-					double Y = (*LocationArray)[1]->AsNumber();
-					double Z = (*LocationArray)[2]->AsNumber();
-					BoneLocation = FVector(X, Y, Z);
-				}
-				FVector BoneScale(1, 1, 1);
 			
-				FrameData.Transforms[BoneIndex] = FTransform((RotationArray->Num()==3?FQuat(BoneRotation):BoneQuat), BoneLocation, BoneScale);
+			FParseJson DataJson(JsonObject);
+			DataJson.ParseBone();
+			DataJson.getBonesTransform();
+			
+			FrameData.Transforms.SetNumUninitialized(DataJson.getBonesTransform().Num());
+
+			//for (TPair<FString, TSharedPtr<FJsonValue>>& Bone : CurrentFrameBones->Values) {
+			//	TSharedPtr<FJsonObject> SingalBoneObject = Bone.Value->AsObject();
+			//	FString BoneName = Bone.Key;
+			//	FVector BoneLocation;
+			//	//FQuat BoneRotation;
+			//	FRotator BoneRotation;
+			//	FQuat BoneQuat;
+			//	FRotator LastBoenRotation;
+			//	const TArray<TSharedPtr<FJsonValue>>* RotationArray;
+			//	const TArray<TSharedPtr<FJsonValue>>* LocationArray;
+			//	LastBoenRotation = FRotator(FrameData.Transforms[BoneIndex].GetRotation());
+
+			//	if (SingalBoneObject->TryGetArrayField(TEXT("Rotation"), RotationArray) ) {
+			//		if (RotationArray->Num() == 3) {
+			//			double X = (*RotationArray)[0]->AsNumber();
+			//			double Y = (*RotationArray)[1]->AsNumber();
+			//			double Z = (*RotationArray)[2]->AsNumber();
+			//			BoneRotation = FRotator(X, Y, Z);
+			//		}
+			//		else if (RotationArray->Num() == 4) {
+
+			//			double X = (*RotationArray)[0]->AsNumber();
+			//			double Y = (*RotationArray)[1]->AsNumber();
+			//			double Z = (*RotationArray)[2]->AsNumber();
+			//			double W = (*RotationArray)[3]->AsNumber();
+			//			BoneQuat = FQuat(X, Y, Z, W);
+			//			isRotation = false;
+			//		}
+			//	}
+			//	if (SingalBoneObject->TryGetArrayField(TEXT("Position"), LocationArray)) {
+			//		double X = (*LocationArray)[0]->AsNumber();
+			//		double Y = (*LocationArray)[1]->AsNumber();
+			//		double Z = (*LocationArray)[2]->AsNumber();
+			//		BoneLocation = FVector(X, Y, Z);
+			//	}
+			//	FVector BoneScale(1, 1, 1);
+			//
+			//	FrameData.Transforms[BoneIndex] = FTransform((RotationArray->Num()==3?FQuat(BoneRotation):BoneQuat), BoneLocation, BoneScale);
 
 
-				LastFrameBonesRotation[0] = BoneRotation;
-				BoneIndex++;
+			//	LastFrameBonesRotation[0] = BoneRotation;
+			//	BoneIndex++;
 
-			}
+			//}
 			Client->PushSubjectFrameData_AnyThread({ SourceGuid, SubjectName }, MoveTemp(FrameDataStruct));
 		}
 
