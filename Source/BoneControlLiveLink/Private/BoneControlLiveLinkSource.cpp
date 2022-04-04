@@ -220,12 +220,12 @@ void FBoneControlLiveLinkSource::HandleSuitData()
 	FLiveLinkSubjectKey Key = FLiveLinkSubjectKey(SourceGuid, SubjectName);
 
 	TArray<FName> boneNames;
-	boneNames.Add("root");
+	//boneNames.Add("root");
 	boneNames.Add("pelvis");
-	boneNames.Add("spine_01");
-	boneNames.Add("spine_03");
+	//boneNames.Add("spine_01");
+	//boneNames.Add("spine_03");
 	boneNames.Add("spine_05");
-	boneNames.Add("neck_01");
+	//boneNames.Add("neck_01");
 	boneNames.Add("head");
 
 	boneNames.Add("clavicle_l");
@@ -238,45 +238,43 @@ void FBoneControlLiveLinkSource::HandleSuitData()
 	boneNames.Add("lowerarm_r");
 	boneNames.Add("hand_r");
 
-	boneNames.Add("thigh_r");
-	boneNames.Add("calf_r");
-	boneNames.Add("foot_r");
-	boneNames.Add("ball_r");
-
 	boneNames.Add("thigh_l");
 	boneNames.Add("calf_l");
 	boneNames.Add("foot_l");
-	boneNames.Add("ball_l");
+	//boneNames.Add("ball_l");
+
+	boneNames.Add("thigh_r");
+	boneNames.Add("calf_r");
+	boneNames.Add("foot_r");
+	//boneNames.Add("ball_r");
 
 
 
 
 
 	TArray<int32> boneParents;
-	boneParents.Add(0); //0 - root
-	boneParents.Add(0); //1 - pelvis
-	boneParents.Add(1); //2 - spine_01
-	boneParents.Add(2); //3 - spine_03
-	boneParents.Add(3); //4 - spine_05
-	boneParents.Add(4); //5 - neck
-	boneParents.Add(5); //6 - head
-	boneParents.Add(4); //7 - clavicle_l
-	boneParents.Add(7); //8 - upperarm_l
-	boneParents.Add(8); //9 - lowerarm_l
-	boneParents.Add(9); //10 - hand_l
-	boneParents.Add(4); //11 - clavicle_r
-	boneParents.Add(11); //12 - upperarm_r
-	boneParents.Add(12); //13 - lowerarm_r
-	boneParents.Add(13); //14 - hand_r
-	boneParents.Add(1); //15 - thigh_r
+	boneParents.Add(0); //0 - pelvis
+	boneParents.Add(0); //1 - spine_05
+	boneParents.Add(1); //2 - head
+	
+	boneParents.Add(1); //3 - clavicle_l
+	boneParents.Add(3); //4 - upperarm_l
+	boneParents.Add(4); //5 - lowerarm_l
+	boneParents.Add(5); //6 - hand_l
+	
+	boneParents.Add(1); //7 - clavicle_r
+	boneParents.Add(7); //8 - upperarm_r
+	boneParents.Add(8); //9 - lowerarm_r
+	boneParents.Add(9); //10 - hand_r
+	
+	boneParents.Add(0); //11 - thigh_l
+	boneParents.Add(11); //12 - calf_l
+	boneParents.Add(12); //13 - foot_l
+	
+	boneParents.Add(0); //14 - hand_r
+	boneParents.Add(14); //15 - thigh_r
 	boneParents.Add(15); //16 - calf_r
-	boneParents.Add(16); //17 - foot_r
-	boneParents.Add(17); //18 - ball_r
-	boneParents.Add(1); //19 - thigh_l
-	boneParents.Add(19); //20 - calf_l
-	boneParents.Add(20); //21 - foot_l
-	boneParents.Add(21); //22 - ball_l
-
+	
 	//boneParents.Add(0); //0 - root
 	//boneParents.Add(0); //1 - pelvis
 	//boneParents.Add(0); //2 - spine_01
