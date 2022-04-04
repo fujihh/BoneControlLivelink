@@ -55,4 +55,5 @@ E:/UE_Project/LiveLinkPluginsTest/Plugins/BoneControlLiveLink/Source/BoneControl
 E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Source\BoneControlLiveLink\Public\BoneControlLiveLinkSourceFactory.h
 E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Intermediate\Build\Win64\UE4Editor\Inc\BoneControlLiveLink\BoneControlLiveLinkSourceFactory.generated.h
 E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Source\BoneControlLiveLink\Public\SBoneControlLiveLinkSourceFactory.h
+E:/UE_Project/LiveLinkPluginsTest/Plugins/BoneControlLiveLink/Source/BoneControlLiveLink/Private/FParseJson.cpp
 E:/UE_Project/LiveLinkPluginsTest/Plugins/BoneControlLiveLink/Source/BoneControlLiveLink/Private/SBoneControlLiveLinkSourceFactory.cpp

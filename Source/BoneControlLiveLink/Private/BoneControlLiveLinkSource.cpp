@@ -128,11 +128,14 @@ uint32 FBoneControlLiveLinkSource::Run() {
 void FBoneControlLiveLinkSource::HandleReceivedData(TSharedPtr<TArray<uint8>, ESPMode::ThreadSafe> ReceivedData) {
 
 	FString JsonString;
+	bool isRotation = true;
 	JsonString.Empty(ReceivedData->Num());
 	for (uint8& Byte : *ReceivedData.Get())
 	{
 		JsonString += TCHAR(Byte);
 	}
+
+
 	TSharedPtr<FJsonObject> JsonObject = MakeShareable(new FJsonObject);
 	TSharedRef<TJsonReader<>> JsonReader = TJsonReaderFactory<>::Create(JsonString);
 	if (FJsonSerializer::Deserialize(JsonReader, JsonObject)) {
@@ -147,7 +150,7 @@ void FBoneControlLiveLinkSource::HandleReceivedData(TSharedPtr<TArray<uint8>, ES
 
 			FLiveLinkFrameDataStruct FrameDataStruct = FLiveLinkFrameDataStruct(FLiveLinkAnimationFrameData::StaticStruct());
 			FLiveLinkAnimationFrameData& FrameData = *FrameDataStruct.Cast<FLiveLinkAnimationFrameData>();
-			FrameData.Transforms.SetNumUninitialized(CurrentFrameBones->Values.Num());
+			FrameData.Transforms.SetNumUninitialized(CurrentFrameBones->Values.Num()); 
 
 			for (TPair<FString, TSharedPtr<FJsonValue>>& Bone : CurrentFrameBones->Values) {
 				TSharedPtr<FJsonObject> SingalBoneObject = Bone.Value->AsObject();
@@ -175,6 +178,7 @@ void FBoneControlLiveLinkSource::HandleReceivedData(TSharedPtr<TArray<uint8>, ES
 						double Z = (*RotationArray)[2]->AsNumber();
 						double W = (*RotationArray)[3]->AsNumber();
 						BoneQuat = FQuat(X, Y, Z, W);
+						isRotation = false;
 					}
 				}
 				if (SingalBoneObject->TryGetArrayField(TEXT("Position"), LocationArray)) {
@@ -198,6 +202,8 @@ void FBoneControlLiveLinkSource::HandleReceivedData(TSharedPtr<TArray<uint8>, ES
 	}
 	return;
 }
+
+
 
 
 void FBoneControlLiveLinkSource::HandleSuitData()
