@@ -34,7 +34,7 @@
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN
 "E:\UE_Project\LiveLinkPluginsTest\Intermediate\Build\Win64\LiveLinkPluginsTestEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h.obj"
-"E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Intermediate\Build\Win64\UE4Editor\Development\BoneControlLiveLinkEditor\BoneControlLiveLinkEditor.cpp.obj"
+"E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Intermediate\Build\Win64\UE4Editor\Development\BoneControlLiveLinkEditor\Module.BoneControlLiveLinkEditor.cpp.obj"
 "E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Intermediate\Build\Win64\UE4Editor\Development\BoneControlLiveLinkEditor\Default.rc2.res"
 "E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Development\AIModule\UE4Editor-AIModule.lib"
 "E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Development\AnimGraph\UE4Editor-AnimGraph.lib"

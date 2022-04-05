@@ -21,8 +21,8 @@ void EmptyLinkFunctionForGeneratedCodeBoneControlLiveLink_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0x88FA84D1,
-				0xA80AA647,
+				0xA1BA69A0,
+				0xDD276AFA,
 				METADATA_PARAMS(nullptr, 0)
 			};
 			UE4CodeGen_Private::ConstructUPackage(ReturnPackage, PackageParams);

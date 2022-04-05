@@ -2,7 +2,7 @@
 	"BuildId": "17155196",
 	"Modules": 
 	{
-		"BoneControlLiveLink": "UE4Editor-BoneControlLiveLink-0011.dll",
-		"BoneControlLiveLinkEditor": "UE4Editor-BoneControlLiveLinkEditor-0011.dll"
+		"BoneControlLiveLink": "UE4Editor-BoneControlLiveLink.dll",
+		"BoneControlLiveLinkEditor": "UE4Editor-BoneControlLiveLinkEditor.dll"
 	}
 }

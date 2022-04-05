@@ -1,5 +1,9 @@
 {
 	"RemapUnityFiles": 
 	{
+		"Module.BoneControlLiveLinkEditor.cpp.obj": [
+			"BoneControlAnimGraph.cpp.obj",
+			"BoneControlLiveLinkEditor.cpp.obj"
+		]
 	}
 }
