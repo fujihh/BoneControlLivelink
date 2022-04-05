@@ -4,6 +4,10 @@
 		"Module.BoneControlLiveLinkEditor.cpp.obj": [
 			"BoneControlAnimGraph.cpp.obj",
 			"BoneControlLiveLinkEditor.cpp.obj"
+		],
+		"Module.BoneControlLiveLinkEditor.gen.cpp.obj": [
+			"BoneControlAnimGraph.gen.cpp.obj",
+			"BoneControlLiveLinkEditor.init.gen.cpp.obj"
 		]
 	}
 }

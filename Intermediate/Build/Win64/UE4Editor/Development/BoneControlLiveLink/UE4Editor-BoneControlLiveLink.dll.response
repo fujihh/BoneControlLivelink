@@ -59,7 +59,6 @@
 "E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Development\SlateCore\UE4Editor-SlateCore.lib"
 "E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Development\Sockets\UE4Editor-Sockets.lib"
 "E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Development\UnrealEd\UE4Editor-UnrealEd.lib"
-"E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Intermediate\Build\Win64\UE4Editor\Development\BoneControlLiveLinkEditor\UE4Editor-BoneControlLiveLinkEditor.lib"
 "delayimp.lib"
 "wininet.lib"
 "rpcrt4.lib"

@@ -20,6 +20,6 @@ public:
 	virtual void GatherDebugData(FNodeDebugData& DebugData) override;
 
 private:
-	FBoneContainer boneContainer;
+	//FBoneContainer boneContainer;
 };
 
