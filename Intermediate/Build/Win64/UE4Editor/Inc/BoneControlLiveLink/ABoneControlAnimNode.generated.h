@@ -13,9 +13,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #endif
 #define BONECONTROLLIVELINK_ABoneControlAnimNode_generated_h
 
-#define LiveLinkPluginsTest_Plugins_BoneControlLiveLink_Source_BoneControlLiveLink_Public_ABoneControlAnimNode_h_9_GENERATED_BODY \
+#define LiveLinkPluginsTest_Plugins_BoneControlLiveLink_Source_BoneControlLiveLink_Public_ABoneControlAnimNode_h_12_GENERATED_BODY \
 	friend struct Z_Construct_UScriptStruct_FAnimNode_BoneControl_Statics; \
-	BONECONTROLLIVELINK_API static class UScriptStruct* StaticStruct(); \
+	static class UScriptStruct* StaticStruct(); \
 	typedef FAnimNode_Base Super;
 
 

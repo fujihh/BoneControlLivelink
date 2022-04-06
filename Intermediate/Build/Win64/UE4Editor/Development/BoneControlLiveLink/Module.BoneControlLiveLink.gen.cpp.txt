@@ -27,6 +27,11 @@ E:\UE_4.27\Engine\Source\Runtime\Engine\Classes\Animation/AnimationPoseData.h
 E:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/UndefineUPropertyMacros.h
 E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Inc\Engine\AnimNodeBase.generated.h
 E:\UE_4.27\Engine\Source\Runtime\CoreUObject\Public\UObject/DefineUPropertyMacros.h
+E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Source\BoneControlLiveLink\Public\FParseJson.h
+E:\UE_4.27\Engine\Source\Runtime\Json\Public\Dom/JsonObject.h
+E:\UE_4.27\Engine\Source\Runtime\Json\Public\JsonGlobals.h
+E:\UE_4.27\Engine\Source\Runtime\Json\Public\Serialization/JsonTypes.h
+E:\UE_4.27\Engine\Source\Runtime\Json\Public\Dom/JsonValue.h
 E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Intermediate\Build\Win64\UE4Editor\Inc\BoneControlLiveLink\ABoneControlAnimNode.generated.h
 E:/UE_Project/LiveLinkPluginsTest/Plugins/BoneControlLiveLink/Intermediate/Build/Win64/UE4Editor/Inc/BoneControlLiveLink/BoneControlLiveLink.init.gen.cpp
 E:/UE_Project/LiveLinkPluginsTest/Plugins/BoneControlLiveLink/Intermediate/Build/Win64/UE4Editor/Inc/BoneControlLiveLink/BoneControlLiveLinkSourceFactory.gen.cpp

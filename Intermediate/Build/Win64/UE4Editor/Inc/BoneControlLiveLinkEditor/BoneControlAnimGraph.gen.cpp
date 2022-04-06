@@ -52,7 +52,7 @@ void EmptyLinkFunctionForGeneratedCodeBoneControlAnimGraph() {}
 #endif
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBoneControl_AnimGraphNode_Statics::NewProp_Node_MetaData[] = {
-		{ "Category", "Setting" },
+		{ "Category", "Settings" },
 		{ "ModuleRelativePath", "Public/BoneControlAnimGraph.h" },
 	};
 #endif
@@ -87,7 +87,7 @@ void EmptyLinkFunctionForGeneratedCodeBoneControlAnimGraph() {}
 		}
 		return OuterClass;
 	}
-	IMPLEMENT_CLASS(UBoneControl_AnimGraphNode, 2401232978);
+	IMPLEMENT_CLASS(UBoneControl_AnimGraphNode, 2107596656);
 	template<> BONECONTROLLIVELINKEDITOR_API UClass* StaticClass<UBoneControl_AnimGraphNode>()
 	{
 		return UBoneControl_AnimGraphNode::StaticClass();

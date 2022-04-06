@@ -32,7 +32,6 @@
 /wd4244
 /wd4838
 /I .
-/I E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Source\BoneControlLiveLink\Private
 /I E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Source\BoneControlLiveLinkEditor\Private
 /I E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Intermediate\Build\Win64\UE4Editor\Inc\BoneControlLiveLinkEditor
 /I E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Source

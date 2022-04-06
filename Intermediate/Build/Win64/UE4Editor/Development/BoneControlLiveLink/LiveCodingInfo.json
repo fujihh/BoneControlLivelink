@@ -6,6 +6,7 @@
 			"BoneControlLiveLink.cpp.obj",
 			"BoneControlLiveLinkSource.cpp.obj",
 			"BoneControlLiveLinkSourceFactory.cpp.obj",
+			"FBuildLiveLink.cpp.obj",
 			"FParseJson.cpp.obj",
 			"SBoneControlLiveLinkSourceFactory.cpp.obj"
 		],

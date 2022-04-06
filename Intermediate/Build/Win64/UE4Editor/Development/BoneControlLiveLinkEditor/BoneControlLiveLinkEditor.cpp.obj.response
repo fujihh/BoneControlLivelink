@@ -255,6 +255,8 @@
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\LiveLinkMessageBusFramework
 /I Runtime\LiveLinkMessageBusFramework\Public
 /I Runtime\Networking\Public
+/I E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Intermediate\Build\Win64\UE4Editor\Inc\BoneControlLiveLink
+/I E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Source\BoneControlLiveLink\Public
 /I ThirdParty\PhysX3\PxShared\include
 /I ThirdParty\PhysX3\PxShared\include\cudamanager
 /I ThirdParty\PhysX3\PxShared\include\filebuf

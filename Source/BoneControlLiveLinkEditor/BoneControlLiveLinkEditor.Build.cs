@@ -43,6 +43,6 @@ public class BoneControlLiveLinkEditor : ModuleRules
             "BoneControlLiveLink"
 
            });
-     
+        PrivateIncludePathModuleNames.AddRange(new string[] { "BoneControlLiveLink"  });
     }
 }

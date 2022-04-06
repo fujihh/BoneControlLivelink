@@ -20,8 +20,8 @@ void EmptyLinkFunctionForGeneratedCodeBoneControlLiveLinkEditor_init() {}
 				"/Script/BoneControlLiveLinkEditor",
 				nullptr,
 				0,
-				PKG_CompiledIn | 0x00000040,
-				0x7EAADA45,
+				PKG_CompiledIn | 0x00000100,
+				0xE5705AFB,
 				0xD6A964BB,
 				METADATA_PARAMS(nullptr, 0)
 			};

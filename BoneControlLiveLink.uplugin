@@ -25,8 +25,8 @@
     },
     {
       "Name": "BoneControlLiveLinkEditor",
-      "Type": "Editor",
-      "LoadingPhase": "PostEngineInit",
+      "Type": "UncookedOnly",
+      "LoadingPhase": "PreDefault",
       "WhitelistPlatforms": [
         "Win64",
         "Win32"

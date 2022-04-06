@@ -3,9 +3,6 @@
 #include "Modules/ModuleInterface.h"
 
 #define LOCTEXT_NAMESPACE "BoneControlLiveLinkEditor"
-//IMPLEMENT_GAME_MODULE(FBoneControlLiveLinkEditorModule, BoneControlLiveLinkEditor);
-//
-//DEFINE_LOG_CATEGORY(BoneControlLiveLinkEditor)
 
 void FBoneControlLiveLinkEditorModule::StartupModule() {
 
@@ -16,3 +13,6 @@ void FBoneControlLiveLinkEditorModule::ShutdownModule() {
 }
 
 #undef LOCTEXT_NAMESPACE
+IMPLEMENT_GAME_MODULE(FBoneControlLiveLinkEditorModule, BoneControlLiveLinkEditor);
+DEFINE_LOG_CATEGORY(BoneControlLiveLinkEditor)
+

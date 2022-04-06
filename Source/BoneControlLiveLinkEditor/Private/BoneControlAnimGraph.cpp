@@ -1,9 +1,11 @@
 #include "BoneControlAnimGraph.h"
 
 
-#define LOCTEXT_NAMESPACE "BoneControlAnimGraph"
+#define LOCTEXT_NAMESPACE "A3Nodes"
 
 
+UBoneControl_AnimGraphNode::UBoneControl_AnimGraphNode(){
+}
 FLinearColor UBoneControl_AnimGraphNode::GetNodeTitleColor()const {
 	return FLinearColor(0.7f, 0.7f, 0.7f);
 
