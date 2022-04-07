@@ -1,6 +1,9 @@
 #include"FParseJson.h"
-
+#include "DataManager.h"
+#include "ABoneControlAnimNode.h"
 #define LOCTEXT_NAMESPACE "ParseJosn"
+
+//bonesTransformMap__temp;
 FParseJson::FParseJson(TSharedPtr<FJsonObject> JsonObject) {
 	Bones = JsonObject->GetObjectField("Bones");
 	Frames = JsonObject->GetObjectField("Frames");
@@ -17,7 +20,9 @@ void FParseJson::ParseBone() {
 	FRotator boneRotation;
 	FVector boneScale(1.0, 1.0, 1.0);
 	FQuat boneQuat;
-	
+	DataManager* dataManager_Singleton = DataManager::GetInstance();
+	TMap<FName, FTransform>bonesTransformMap = dataManager_Singleton->GetBonesMap();
+
 	for (TPair<FString, TSharedPtr<FJsonValue>>& Bone : Bones->Values) {
 		TSharedPtr<FJsonObject> singalBoneObject = Bone.Value->AsObject();
 		boneName = Bone.Key;
@@ -43,7 +48,7 @@ void FParseJson::ParseBone() {
 		}
 		if (singalBoneObject->TryGetArrayField(TEXT("Position"), LocationArray)) {
 
-			//FVector tempBoneTranslation = Node.GetBonesTransformMap()[FName(boneName)].GetTranslation() ;
+			FVector tempBoneTranslation = bonesTransformMap[FName(boneName)].GetTranslation() ;
 			double X = (*LocationArray)[0]->AsNumber();
 			double Y = (*LocationArray)[1]->AsNumber();
 			double Z = (*LocationArray)[2]->AsNumber();

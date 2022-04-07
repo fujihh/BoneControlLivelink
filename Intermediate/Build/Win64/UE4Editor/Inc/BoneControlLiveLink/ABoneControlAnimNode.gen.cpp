@@ -59,9 +59,9 @@ static struct FScriptStruct_BoneControlLiveLink_StaticRegisterNativesFAnimNode_B
 #if WITH_METADATA
 	const UE4CodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FAnimNode_BoneControl_Statics::Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "//extern TMap<FName, FTransform>bonesTransformMap__temp;\n" },
+		{ "Comment", "//extern \"C\" TMap<FName, FTransform>bonesTransformMap__temp;\n" },
 		{ "ModuleRelativePath", "Public/ABoneControlAnimNode.h" },
-		{ "ToolTip", "extern TMap<FName, FTransform>bonesTransformMap__temp;" },
+		{ "ToolTip", "extern \"C\" TMap<FName, FTransform>bonesTransformMap__temp;" },
 	};
 #endif
 	void* Z_Construct_UScriptStruct_FAnimNode_BoneControl_Statics::NewStructOps()
@@ -106,7 +106,7 @@ static struct FScriptStruct_BoneControlLiveLink_StaticRegisterNativesFAnimNode_B
 		}
 		return ReturnStruct;
 	}
-	uint32 Get_Z_Construct_UScriptStruct_FAnimNode_BoneControl_Hash() { return 1436399118U; }
+	uint32 Get_Z_Construct_UScriptStruct_FAnimNode_BoneControl_Hash() { return 1494257910U; }
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 #ifdef _MSC_VER
 #pragma warning (pop)

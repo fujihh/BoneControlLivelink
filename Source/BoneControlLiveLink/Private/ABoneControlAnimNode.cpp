@@ -3,7 +3,9 @@
 
 #include "Misc/FileHelper.h"
 
+#include "DataManager.h"
 
+//extern "C" TMap<FName, FTransform>bonesTransformMap__temp;
 FAnimNode_BoneControl::FAnimNode_BoneControl() {
 
 }
@@ -20,8 +22,12 @@ void FAnimNode_BoneControl::Initialize_AnyThread(const FAnimationInitializeConte
 	if (bonesName.Num() == bonesTransform.Num()) {
 		for (int i = 0; i < bonesName.Num(); i++) {
 			bonesTransformMap.Add(bonesName[i], bonesTransform[i]);
+			//bonesTransformMap__temp.Add(bonesName[i], bonesTransform[i]);
 			//temp.Add((bonesName[i].ToString()) + " : " + bonesTransform[i].GetTranslation().ToString());
 		}
+		DataManager* dataManager_Singleton = DataManager::GetInstance();
+		dataManager_Singleton->SetBonesMap(bonesTransformMap);
+		//m_DataManager.SetBonesMap(bonesTransformMap);
 	}
 	//bonesTransformMap__temp = bonesTransformMap;
 	/*FString filepath = FPaths::GameSourceDir() + TEXT("BoneTranslation.txt");

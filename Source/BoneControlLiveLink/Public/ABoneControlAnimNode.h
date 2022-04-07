@@ -5,8 +5,8 @@
 #include "FParseJson.h"
 #include "ABoneControlAnimNode.generated.h"
 
+//extern "C" TMap<FName, FTransform>bonesTransformMap__temp;
 
-//extern TMap<FName, FTransform>bonesTransformMap__temp;
 USTRUCT(BlueprintType) 
 struct BONECONTROLLIVELINK_API  FAnimNode_BoneControl :public FAnimNode_Base {
 	GENERATED_BODY()
@@ -25,6 +25,7 @@ public:
 	//virtual void PreUpdate(const UAnimInstance* InAnimInstance) override;
 	virtual void GatherDebugData(FNodeDebugData& DebugData) override;
 	TMap<FName, FTransform>GetBonesTransformMap();
+	//static FAnimNode_BoneControl* GetInstance(const FString& value);
 private:
 	//FBoneContainer boneContainer;
 	TMap<FName, FTransform>bonesTransformMap;

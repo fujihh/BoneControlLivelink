@@ -5,11 +5,11 @@
 //#include "Serialization/JsonSerializer.h"
 #include "Dom/JsonObject.h"
 //#include"FParseJson.generated.h"
-#include "ABoneControlAnimNode.h"
+
 
 
 //UCLASS()
-class  FParseJson{
+class BONECONTROLLIVELINK_API FParseJson{
 	//GENERATED_BODY()
 public:
 	FParseJson(TSharedPtr<FJsonObject>JsonObject);

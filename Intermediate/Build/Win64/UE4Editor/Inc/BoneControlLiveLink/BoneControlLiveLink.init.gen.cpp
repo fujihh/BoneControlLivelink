@@ -21,7 +21,7 @@ void EmptyLinkFunctionForGeneratedCodeBoneControlLiveLink_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000000,
-				0xFC0B1B73,
+				0x46B47A54,
 				0xDD276AFA,
 				METADATA_PARAMS(nullptr, 0)
 			};
