@@ -52,8 +52,8 @@ void FParseJson::ParseBone() {
 			double X = (*LocationArray)[0]->AsNumber();
 			double Y = (*LocationArray)[1]->AsNumber();
 			double Z = (*LocationArray)[2]->AsNumber();
-			boneTranslation = FVector(X, Y, Z);
-			//boneTranslation = tempBoneTranslation;
+			//boneTranslation = FVector(X, Y, Z);//deprecated 
+			boneTranslation = tempBoneTranslation;//get bones location by bone Container
 		}
 
 		FTransform boneTransform = FTransform((isRotation ? boneRotation.Quaternion() : boneQuat), boneTranslation, boneScale);
