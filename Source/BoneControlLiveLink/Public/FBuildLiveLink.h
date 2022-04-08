@@ -6,7 +6,7 @@
 #include "Roles/LiveLinkAnimationTypes.h"
 
 
-#define bone_pelvis			FName("pelvis")
+#define bone_spine_01		FName("spine_01")
 #define bone_spine_03		FName("spine_03")
 #define bone_head			FName("head")
 #define bone_clavicle_l		FName("clavicle_l")

@@ -22,6 +22,7 @@ void FParseJson::ParseBone() {
 	FQuat boneQuat;
 	DataManager* dataManager_Singleton = DataManager::GetInstance();
 	TMap<FName, FTransform>bonesTransformMap = dataManager_Singleton->GetBonesMap();
+	FVector tempBoneTranslation;
 
 	for (TPair<FString, TSharedPtr<FJsonValue>>& Bone : Bones->Values) {
 		TSharedPtr<FJsonObject> singalBoneObject = Bone.Value->AsObject();
@@ -48,12 +49,16 @@ void FParseJson::ParseBone() {
 		}
 		if (singalBoneObject->TryGetArrayField(TEXT("Position"), LocationArray)) {
 
-			FVector tempBoneTranslation = bonesTransformMap[FName(boneName)].GetTranslation() ;
-			double X = (*LocationArray)[0]->AsNumber();
-			double Y = (*LocationArray)[1]->AsNumber();
-			double Z = (*LocationArray)[2]->AsNumber();
-			//boneTranslation = FVector(X, Y, Z);//deprecated 
-			boneTranslation = tempBoneTranslation;//get bones location by bone Container
+			tempBoneTranslation = bonesTransformMap[FName(boneName)].GetTranslation() ;
+
+			//double X = (*LocationArray)[0]->AsNumber();
+			//double Y = (*LocationArray)[1]->AsNumber();
+			//double Z = (*LocationArray)[2]->AsNumber();
+			//boneTranslation = tempBoneTranslation;//get bones location by bone Container
+			double X = tempBoneTranslation.X;
+			double Y = tempBoneTranslation.Y;
+			double Z = tempBoneTranslation.Z;
+			boneTranslation = FVector(X, Y, Z);//deprecated 
 		}
 
 		FTransform boneTransform = FTransform((isRotation ? boneRotation.Quaternion() : boneQuat), boneTranslation, boneScale);

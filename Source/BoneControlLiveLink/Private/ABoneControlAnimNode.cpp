@@ -27,6 +27,7 @@ void FAnimNode_BoneControl::Initialize_AnyThread(const FAnimationInitializeConte
 		}
 		DataManager* dataManager_Singleton = DataManager::GetInstance();
 		dataManager_Singleton->SetBonesMap(bonesTransformMap);
+		UE_LOG(LogTemp, Log, TEXT("num : %d"),boneContainer.GetNumBones());
 		//m_DataManager.SetBonesMap(bonesTransformMap);
 	}
 	//bonesTransformMap__temp = bonesTransformMap;
@@ -41,7 +42,9 @@ void FAnimNode_BoneControl::CacheBones_AnyThread(const FAnimationCacheBonesConte
 }
 
 void FAnimNode_BoneControl::Evaluate_AnyThread(FPoseContext& Ouput) {
-
+	FBoneContainer boneContainer= Ouput.Pose.GetBoneContainer();
+	boneContainer.GetCalculatedForLOD();
+	UE_LOG(LogTemp, Log, TEXT("LOD : %d , Bone Num : %d"), boneContainer.GetCalculatedForLOD(), boneContainer.GetNumBones());
 }
 
 void FAnimNode_BoneControl::Update_AnyThread(const FAnimationUpdateContext& Context) {

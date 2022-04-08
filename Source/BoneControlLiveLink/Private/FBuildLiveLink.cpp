@@ -3,7 +3,7 @@
 #define LOCTEXT_NAMESPACE "BuildLiveLink"
 
 FBuildLiveLink::FBuildLiveLink(ILiveLinkClient* iClient, FGuid iSourceGuid, FName iSubjectName){
-	staticBonesName.Add(bone_pelvis);
+	staticBonesName.Add(bone_spine_01);
 	staticBonesName.Add(bone_spine_03);
 	staticBonesName.Add(bone_head);
 	staticBonesName.Add(bone_clavicle_l);
