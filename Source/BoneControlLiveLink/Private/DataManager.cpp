@@ -31,3 +31,12 @@ TMap<FName, FTransform> DataManager::GetBonesMap() {
 void DataManager::SetBonesMap(TMap<FName, FTransform>bonesMap) {
 	bonesTransformMap = bonesMap;
 }
+
+void DataManager::setIsMetahumans(bool _isMetahumans) {
+	if (_isMetahumans) {
+		isMetahumans = true;
+	}
+	else {
+		isMetahumans = false;
+	}
+}

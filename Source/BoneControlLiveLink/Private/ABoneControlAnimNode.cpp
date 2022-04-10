@@ -27,6 +27,7 @@ void FAnimNode_BoneControl::Initialize_AnyThread(const FAnimationInitializeConte
 		}
 		DataManager* dataManager_Singleton = DataManager::GetInstance();
 		dataManager_Singleton->SetBonesMap(bonesTransformMap);
+		
 		UE_LOG(LogTemp, Log, TEXT("num : %d"),boneContainer.GetNumBones());
 		//m_DataManager.SetBonesMap(bonesTransformMap);
 	}
@@ -56,4 +57,14 @@ void FAnimNode_BoneControl::GatherDebugData(FNodeDebugData& DebugData) {
 TMap<FName, FTransform> FAnimNode_BoneControl::GetBonesTransformMap() {
 	
 	return bonesTransformMap;
+}
+
+void judgeIsMetahumans(int bonesnum) {
+	DataManager* dataManager_Singleton = DataManager::GetInstance();
+	if (bonesnum == 68) {
+		dataManager_Singleton->setIsMetahumans(false);
+	}
+	else {
+		dataManager_Singleton->setIsMetahumans(true);
+	}
 }

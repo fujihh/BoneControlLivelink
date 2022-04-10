@@ -16,6 +16,7 @@ public:
 	~FParseJson();
 	void ParseBone();
 	TMap<FName, FTransform> getBonesTransform() { return bonesTransform; }
+	void setIsMetahumans(bool _isMetahumans);
 
 private:
 
@@ -23,6 +24,7 @@ private:
 	TSharedPtr<FJsonObject>Bones;
 	bool isRotation = false;
 	int boneIndex = 0;
+	bool isMetahumans = false;
 	TMap<FName, FTransform>bonesTransform;
 
 };

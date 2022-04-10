@@ -11,6 +11,7 @@ public:
 	static void DeleteInstance();
 	TMap<FName, FTransform>GetBonesMap();
 	void SetBonesMap(const TMap<FName, FTransform>bonesMap);
+	void setIsMetahumans(bool _isMetahumans);
 
 private:
 	DataManager();
@@ -24,7 +25,7 @@ private:
 	
 private:
 	static DataManager* m_DataManager;
-
+	bool isMetahumans = false;
 	TMap<FName, FTransform>bonesTransformMap;
 
 
