@@ -1,10 +1,19 @@
 #include"FBuildLiveLink.h"
+#include "DataManager.h"
 
 #define LOCTEXT_NAMESPACE "BuildLiveLink"
 
 FBuildLiveLink::FBuildLiveLink(ILiveLinkClient* iClient, FGuid iSourceGuid, FName iSubjectName){
+	
+	DataManager* dataManager_Singleton = DataManager::GetInstance();
 	staticBonesName.Add(bone_spine_01);
-	staticBonesName.Add(bone_spine_03);
+	if (dataManager_Singleton->getIsMetahumans()) {
+		staticBonesName.Add(bone_spine_05);
+	}
+	else {
+		staticBonesName.Add(bone_spine_03);
+
+	}
 	staticBonesName.Add(bone_head);
 	staticBonesName.Add(bone_clavicle_l);
 	staticBonesName.Add(bone_upperarm_l);

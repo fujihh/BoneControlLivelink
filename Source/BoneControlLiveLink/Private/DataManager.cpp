@@ -40,3 +40,7 @@ void DataManager::setIsMetahumans(bool _isMetahumans) {
 		isMetahumans = false;
 	}
 }
+
+bool DataManager::getIsMetahumans() {
+	return isMetahumans;
+}

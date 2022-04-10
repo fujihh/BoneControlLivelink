@@ -12,6 +12,7 @@ public:
 	TMap<FName, FTransform>GetBonesMap();
 	void SetBonesMap(const TMap<FName, FTransform>bonesMap);
 	void setIsMetahumans(bool _isMetahumans);
+	bool getIsMetahumans();
 
 private:
 	DataManager();

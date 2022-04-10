@@ -7,7 +7,8 @@
 
 
 #define bone_spine_01		FName("spine_01")
-#define bone_spine_03		FName("spine_03")
+#define bone_spine_03		FName("spine_03")//nmanqui
+#define bone_spine_05		FName("spine_05")//metahumans's skeleton 
 #define bone_head			FName("head")
 #define bone_clavicle_l		FName("clavicle_l")
 #define bone_upperarm_l		FName("upperarm_l")
