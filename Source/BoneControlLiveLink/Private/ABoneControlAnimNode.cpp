@@ -5,6 +5,9 @@
 
 #include "DataManager.h"
 
+
+void judgeBoneType(int bonesnum);
+//#define VNAME(value) (#value)
 //extern "C" TMap<FName, FTransform>bonesTransformMap__temp;
 FAnimNode_BoneControl::FAnimNode_BoneControl() {
 
@@ -14,8 +17,15 @@ FAnimNode_BoneControl::FAnimNode_BoneControl() {
 void FAnimNode_BoneControl::Initialize_AnyThread(const FAnimationInitializeContext& Context) {
 	//BasePose.Initialize(Context);
 	//bonesTransformMap;
-	//TArray<FString>temp;
+	TArray<FString>temp;
+
 	FBoneContainer boneContainer = Context.AnimInstanceProxy->GetRequiredBones();  
+	
+	
+	//FString boneTypeName = VNAME(boneContainer.GetSkeletonAsset());
+	//USkeleton *currentSkelton = boneContainer.GetSkeletonAsset();
+	//FString boneTypeName = typeid(currentSkelton).name();
+
 	TArray<FName>bonesName;
 	Context.AnimInstanceProxy->GetSkelMeshComponent()->GetBoneNames(bonesName); // get skeleton's Name;
 	TArray<FTransform>bonesTransform = boneContainer.GetRefPoseArray(); //get each skeleton's transform;
@@ -23,18 +33,18 @@ void FAnimNode_BoneControl::Initialize_AnyThread(const FAnimationInitializeConte
 		for (int i = 0; i < bonesName.Num(); i++) {
 			bonesTransformMap.Add(bonesName[i], bonesTransform[i]);
 			//bonesTransformMap__temp.Add(bonesName[i], bonesTransform[i]);
-			//temp.Add((bonesName[i].ToString()) + " : " + bonesTransform[i].GetTranslation().ToString());
+			temp.Add((bonesName[i].ToString()) + " : " + bonesTransform[i].GetRotation().ToString());
 		}
 		DataManager* dataManager_Singleton = DataManager::GetInstance();
 		dataManager_Singleton->SetBonesMap(bonesTransformMap);
-		
+		judgeBoneType(bonesName.Num());
 		UE_LOG(LogTemp, Log, TEXT("num : %d"),boneContainer.GetNumBones());
 		//m_DataManager.SetBonesMap(bonesTransformMap);
 	}
 	//bonesTransformMap__temp = bonesTransformMap;
-	/*FString filepath = FPaths::GameSourceDir() + TEXT("BoneTranslation.txt");
+	FString filepath = FPaths::GameSourceDir() + TEXT("BoneTranslation.txt");
 	filepath = FPaths::ConvertRelativePathToFull(filepath);
-	FFileHelper::SaveStringArrayToFile(temp, *filepath, FFileHelper::EEncodingOptions::ForceUTF8);*/
+	FFileHelper::SaveStringArrayToFile(temp, *filepath, FFileHelper::EEncodingOptions::ForceUTF8);
 	
 }
 
@@ -59,12 +69,16 @@ TMap<FName, FTransform> FAnimNode_BoneControl::GetBonesTransformMap() {
 	return bonesTransformMap;
 }
 
-void judgeIsMetahumans(int bonesnum) {
+void judgeBoneType(int bonesnum) {
 	DataManager* dataManager_Singleton = DataManager::GetInstance();
 	if (bonesnum == 68) {
-		dataManager_Singleton->setIsMetahumans(false);
+		dataManager_Singleton->setBoneSelected(0);
+	}
+	else if(bonesnum == 178	){
+		dataManager_Singleton->setBoneSelected(2);
 	}
 	else {
-		dataManager_Singleton->setIsMetahumans(true);
+		dataManager_Singleton->setBoneSelected(1);
+
 	}
 }

@@ -39,7 +39,7 @@ public class BoneControlLiveLinkEditor : ModuleRules
             "Slate",
             "SlateCore",
             "Sockets",
-            "UnrealEd",
+            /*"UnrealEd",*/
             "BoneControlLiveLink"
 
            });

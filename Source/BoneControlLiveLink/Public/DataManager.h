@@ -48,6 +48,7 @@ public:
 	void buildDAZMap();
 	const int boneNum =17;
 	void buildBoneTypeMap(const int boneType);
+	TMap<FName, FName> getBoneTypeName();
 private:
 	DataManager();
 	~DataManager();
