@@ -24,6 +24,8 @@
 #define bone_thigh_r		FName("thigh_r")
 #define bone_calf_r			FName("calf_r")
 #define bone_foot_r			FName("foot_r")
+
+
 class FBuildLiveLink {
 
 public:
