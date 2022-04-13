@@ -20,11 +20,11 @@ public class BoneControlLiveLink : ModuleRules
             });
 
 		PublicDependencyModuleNames.AddRange(new string[] {
-			"AIModule",
-			"AnimGraph",
+			"AIModule",/*
+			"AnimGraph",*/
 			"AnimGraphRuntime",
-			"BlueprintGraph",
-			"Core",
+			/*"BlueprintGraph",
+			*/"Core",
 			"CoreUObject",
 			"Engine",
 			"Foliage",

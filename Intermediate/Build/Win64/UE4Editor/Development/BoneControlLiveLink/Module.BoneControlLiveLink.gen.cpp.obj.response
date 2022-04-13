@@ -235,9 +235,6 @@
 /I Editor\Kismet\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\ClothingSystemRuntimeInterface
 /I Runtime\ClothingSystemRuntimeInterface\Public
-/I ..\Intermediate\Build\Win64\UE4Editor\Inc\AnimGraph
-/I Editor\AnimGraph\Classes
-/I Editor\AnimGraph\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\AnimGraphRuntime
 /I Runtime\AnimGraphRuntime\Public
 /I ..\Intermediate\Build\Win64\UE4Editor\Inc\Foliage

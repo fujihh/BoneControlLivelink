@@ -1,0 +1,20 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.BoneControlLiveLink.cpp.obj": [
+			"ABoneControlAnimNode.cpp.obj",
+			"BoneControlLiveLink.cpp.obj",
+			"BoneControlLiveLinkSource.cpp.obj",
+			"BoneControlLiveLinkSourceFactory.cpp.obj",
+			"DataManager.cpp.obj",
+			"FBuildLiveLink.cpp.obj",
+			"FParseJson.cpp.obj",
+			"SBoneControlLiveLinkSourceFactory.cpp.obj"
+		],
+		"Module.BoneControlLiveLink.gen.cpp.obj": [
+			"ABoneControlAnimNode.gen.cpp.obj",
+			"BoneControlLiveLink.init.gen.cpp.obj",
+			"BoneControlLiveLinkSourceFactory.gen.cpp.obj"
+		]
+	}
+}

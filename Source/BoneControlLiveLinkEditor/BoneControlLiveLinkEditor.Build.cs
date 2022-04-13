@@ -4,6 +4,7 @@ public class BoneControlLiveLinkEditor : ModuleRules
 {
     public BoneControlLiveLinkEditor(ReadOnlyTargetRules Target) : base(Target)
     {
+        /*OverridePackageType = PackageOverrideType.GameUncookedOnly;*/
         PublicIncludePaths.AddRange(
            new string[]
            {

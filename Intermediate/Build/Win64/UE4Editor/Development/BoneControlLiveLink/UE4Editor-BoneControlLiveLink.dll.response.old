@@ -33,7 +33,7 @@
 /NODEFAULTLIB:"LIBCD"
 /NODEFAULTLIB:"LIBCPD"
 /FUNCTIONPADMIN
-"E:\UE_Project\LiveLinkPluginsTest\Intermediate\Build\Win64\LiveLinkPluginsTestEditor\Development\UnrealEd\SharedPCH.UnrealEd.ShadowErrors.h.obj"
+"E:\UE_Project\LiveLinkPluginsTest\Intermediate\Build\Win64\LiveLinkPluginsTestEditor\Development\Engine\SharedPCH.Engine.ShadowErrors.h.obj"
 "E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Intermediate\Build\Win64\UE4Editor\Development\BoneControlLiveLink\Module.BoneControlLiveLink.cpp.obj"
 "E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Intermediate\Build\Win64\UE4Editor\Development\BoneControlLiveLink\Module.BoneControlLiveLink.gen.cpp.obj"
 "E:\UE_Project\LiveLinkPluginsTest\Plugins\BoneControlLiveLink\Intermediate\Build\Win64\UE4Editor\Development\BoneControlLiveLink\Default.rc2.res"
@@ -58,7 +58,6 @@
 "E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Development\Slate\UE4Editor-Slate.lib"
 "E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Development\SlateCore\UE4Editor-SlateCore.lib"
 "E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Development\Sockets\UE4Editor-Sockets.lib"
-"E:\UE_4.27\Engine\Intermediate\Build\Win64\UE4Editor\Development\UnrealEd\UE4Editor-UnrealEd.lib"
 "delayimp.lib"
 "wininet.lib"
 "rpcrt4.lib"
