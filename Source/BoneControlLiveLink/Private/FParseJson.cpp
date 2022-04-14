@@ -53,15 +53,21 @@ void FParseJson::ParseBone() {
 		}
 		if (singalBoneObject->TryGetArrayField(TEXT("Position"), LocationArray)) {
 
-			tempBoneTranslation = bonesTransformMap[boneName].GetTranslation() ;
+			double X, Y, Z;
+			if (bonesTransformMap.Num() > 0) {
+				tempBoneTranslation = bonesTransformMap[boneName].GetTranslation() ;
+				X = tempBoneTranslation.X;
+				Y = tempBoneTranslation.Y;
+				Z = tempBoneTranslation.Z;
 
-			//double X = (*LocationArray)[0]->AsNumber();
-			//double Y = (*LocationArray)[1]->AsNumber();
-			//double Z = (*LocationArray)[2]->AsNumber();
+			}
+			else {
+
+				X = (*LocationArray)[0]->AsNumber();
+				Y = (*LocationArray)[1]->AsNumber();
+				Z = (*LocationArray)[2]->AsNumber();
+			}
 			//boneTranslation = tempBoneTranslation;//get bones location by bone Container
-			double X = tempBoneTranslation.X;
-			double Y = tempBoneTranslation.Y;
-			double Z = tempBoneTranslation.Z;
 			boneTranslation = FVector(X, Y, Z);//deprecated 
 		}
 

@@ -18,7 +18,7 @@ void DataManager::DeleteInstance() {
 }
 
 DataManager::DataManager() {
-
+	this->buildBoneTypeMap(0);
 }
 
 

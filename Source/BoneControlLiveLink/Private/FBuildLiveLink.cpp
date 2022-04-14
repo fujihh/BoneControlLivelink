@@ -32,25 +32,47 @@ FBuildLiveLink::FBuildLiveLink(ILiveLinkClient* iClient, FGuid iSourceGuid, FNam
 
 	//
 	TMap<FName, FName>boneNames = dataManager_Singleton->getBoneTypeName();
-	staticBonesName.Add(boneNames[bone_spine_01]);
-	staticBonesName.Add(boneNames[bone_spine_03]);
-	staticBonesName.Add(boneNames[bone_head]);
+	if (boneNames.Num() > 0) {
 
-	staticBonesName.Add(boneNames[bone_clavicle_l]);
-	staticBonesName.Add(boneNames[bone_upperarm_l]);
-	staticBonesName.Add(boneNames[bone_lowerarm_l]);
-	staticBonesName.Add(boneNames[bone_hand_l]);
-	staticBonesName.Add(boneNames[bone_clavicle_r]);
-	staticBonesName.Add(boneNames[bone_upperarm_r]);
-	staticBonesName.Add(boneNames[bone_lowerarm_r]);
-	staticBonesName.Add(boneNames[bone_hand_r]);
+		staticBonesName.Add(boneNames[bone_spine_01]);
+		staticBonesName.Add(boneNames[bone_spine_03]);
+		staticBonesName.Add(boneNames[bone_head]);
 
-	staticBonesName.Add(boneNames[bone_thigh_l]);
-	staticBonesName.Add(boneNames[bone_calf_l]);
-	staticBonesName.Add(boneNames[bone_foot_l]);
-	staticBonesName.Add(boneNames[bone_thigh_r]);
-	staticBonesName.Add(boneNames[bone_calf_r]);
-	staticBonesName.Add(boneNames[bone_foot_r]);
+		staticBonesName.Add(boneNames[bone_clavicle_l]);
+		staticBonesName.Add(boneNames[bone_upperarm_l]);
+		staticBonesName.Add(boneNames[bone_lowerarm_l]);
+		staticBonesName.Add(boneNames[bone_hand_l]);
+		staticBonesName.Add(boneNames[bone_clavicle_r]);
+		staticBonesName.Add(boneNames[bone_upperarm_r]);
+		staticBonesName.Add(boneNames[bone_lowerarm_r]);
+		staticBonesName.Add(boneNames[bone_hand_r]);
+		
+		staticBonesName.Add(boneNames[bone_thigh_l]);
+		staticBonesName.Add(boneNames[bone_calf_l]);
+		staticBonesName.Add(boneNames[bone_foot_l]);
+		staticBonesName.Add(boneNames[bone_thigh_r]);
+		staticBonesName.Add(boneNames[bone_calf_r]);
+		staticBonesName.Add(boneNames[bone_foot_r]);
+	}
+	//else {
+	//	staticBonesName.Add(bone_spine_01);
+	//	staticBonesName.Add(bone_spine_03);
+	//	staticBonesName.Add(bone_head);
+	//	staticBonesName.Add(bone_clavicle_l);
+	//	staticBonesName.Add(bone_upperarm_l);
+	//	staticBonesName.Add(bone_lowerarm_l);
+	//	staticBonesName.Add(bone_hand_l);
+	//	staticBonesName.Add(bone_clavicle_r);
+	//	staticBonesName.Add(bone_upperarm_r);
+	//	staticBonesName.Add(bone_lowerarm_r);
+	//	staticBonesName.Add(bone_hand_r);
+	//	staticBonesName.Add(bone_thigh_l);
+	//	staticBonesName.Add(bone_calf_l);
+	//	staticBonesName.Add(bone_foot_l);
+	//	staticBonesName.Add(bone_thigh_r);
+	//	staticBonesName.Add(bone_calf_r);
+	//	staticBonesName.Add(bone_foot_r);
+	//}
 	staticBonesParentIndex.Add(0);
 	staticBonesParentIndex.Add(0);
 	staticBonesParentIndex.Add(1);
