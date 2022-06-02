@@ -100,6 +100,7 @@ FBuildLiveLink::FBuildLiveLink(ILiveLinkClient* iClient, FGuid iSourceGuid, FNam
 
 	FrameDataStruct = FLiveLinkFrameDataStruct(FLiveLinkAnimationFrameData::StaticStruct());
 	FrameData = FrameDataStruct.Cast<FLiveLinkAnimationFrameData>();
+	
 
 	SkeletonData->SetBoneNames(staticBonesName);
 	SkeletonData->SetBoneParents(staticBonesParentIndex);
